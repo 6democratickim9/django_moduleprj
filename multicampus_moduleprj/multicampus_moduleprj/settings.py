@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = 'multicampus_moduleprj.spiders'
 #USER_AGENT = 'multicampus_moduleprj (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -86,6 +86,8 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-FEED_FORMAT ="csv"
-FEED_URI = "my_news.csv"
+FEED_FORMAT = "csv"
+FEED_URI ="my_news.csv"
+# FEED_FORMAT = "json"
+# FEED_URI ="my_news.json"
 FEED_EXPORT_ENCODING = 'utf-8-sig'
