@@ -2,9 +2,19 @@ import scrapy
 from multicampus_moduleprj.items import MulticampusModuleprjItem
 from scrapy.http import Request
 
+# def remove_space(titles:list) -> list:
+#     result = []
+#     # 공백 제거
+#     for i in range(len(titles)):
+#         if len(titles[i].strip()) >0:
+#             result.append(titles[i].strip())
+ 
+#     return result
 
 
-URL = 'https://news.naver.com/main/main.nhn?mode=LSD&mid=shm&sid1=105#&date=20210125&page=%s'
+
+
+URL = 'https://news.naver.com/main/list.nhn?mode=LS2D&mid=shm&sid1=105&sid2=105/&page=%s'
 start_page = 1
 
 
@@ -17,13 +27,14 @@ class MybotsSpider(scrapy.Spider):
     def start_requests(self):
         # print("chk1----------------------------------")
         for i in range(10):
-            yield Request(url=URL%(i+start_page), callback=self.parse)
+            yield Request(url=URL%(i+start_page), callback=self.parse, dont_filter=True)
 
     def parse (self,response):
-        titles = response.xpath('//*[@id="section_body"]/ul[1]/li/dl/dt[2]/a/text()').extract()
+        titles = response.xpath('//*[@id="main_content"]/div[2]/ul[2]/li/dl/dt[2]/a/text()').extract()
+        # test = response.xpath('').extract()
         writers = response.css('.writing::text').extract()
         previews = response.css('.lede::text').extract()
-        # print("-------------->", titles)
+        # print("-------------->", test)
         # print("-------------->", writers)
         # print("-------------->", previews)
         
