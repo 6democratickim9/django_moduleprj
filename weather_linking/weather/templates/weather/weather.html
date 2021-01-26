@@ -12,36 +12,44 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    What's the weather like?
+                    3단계 과제 진행중 ~
                 </h1>
             </div>
         </div>
     </section>
-    <section class="section">
-        <div class="container"> 
-            <div class="columns">
-                <div class="column is-offset-4 is-4">
-                    <form method="POST">
-                        {% csrf_token %}
-                        <div class="field has-addons">
-                            <div class="control is-expanded">
-                                {{ form.name }}
-                            </div>
-                            <div class="control">
-                                <button class="button is-info">
-                                    Add City
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    
     <section class="section">
         <div class="container">
             <div class="columns">
-          <div class="column is-offset-4 is-4">
+                <h2>오늘의 날씨</h2>
+                <div class="column is-offset-4 is-4">
+
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-50x50">
+                                    <img src="http://openweathermap.org/img/w/{{ today_weather.icon }}.png" alt="Image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <span class="title">{{ today_weather.temp }}도</span>
+                                        <br>
+                                        <span class="subtitle">{{ today_weather.main }}</span>
+                                        <br> {{ today_weather.description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+
+            <div class="columns">
+                <h2>7일 동안의 날씨</h2>
+                <div class="column is-offset-4 is-4">
                     {% for weather in weather_data %}
                     <div class="box">
                         <article class="media">
@@ -53,9 +61,9 @@
                             <div class="media-content">
                                 <div class="content">
                                     <p>
-                                        <span class="title">{{ weather.city }}</span>
+                                        <span class="title">{{ weather.day }}일 후</span>
                                         <br>
-                                        <span class="subtitle">{{ weather.temperature }}° F</span>
+                                        <span class="subtitle">{{ weather.main }}</span>
                                         <br> {{ weather.description }}
                                     </p>
                                 </div>
