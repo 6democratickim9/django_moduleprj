@@ -62,9 +62,9 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'multicampus_moduleprj.pipelines.MulticampusModuleprjPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'multicampus_moduleprj.pipelines.MulticampusModuleprjPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -86,8 +86,8 @@ ROBOTSTXT_OBEY = False
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-FEED_FORMAT = "csv"
-FEED_URI ="my_news.csv"
-# FEED_FORMAT = "json"
-# FEED_URI ="my_news.json"
-FEED_EXPORT_ENCODING = 'utf-8-sig'
+# FEED_FORMAT = "csv"
+# FEED_URI ="my_news.csv"
+# # FEED_FORMAT = "json"
+# # FEED_URI ="my_news.json"
+# FEED_EXPORT_ENCODING = 'utf-8-sig'
