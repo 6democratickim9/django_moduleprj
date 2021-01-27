@@ -1,4 +1,4 @@
-from multicampus_moduleprj.multicampus_moduleprj.items import MulticampusModuleprjItem_ec, MulticampusModuleprjItem_it
+from multicampus_moduleprj.items import MulticampusModuleprjItem_ec, MulticampusModuleprjItem_it
 import scrapy
 from scrapy.http import Request
 
