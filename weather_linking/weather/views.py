@@ -1,7 +1,6 @@
 from django.shortcuts import render
+from .models import today_weather_db
 import requests
-from .models import City
-from .forms import CityForm
 
 def index(request):
     url = 'https://api.openweathermap.org/data/2.5/onecall?lat=37.566535&lon=126.977969&exclude=minutely,hourly,alerts&appid=43fcd06479e874bea4eb2b675ab6b465'
@@ -37,3 +36,44 @@ def index(request):
     }
 
     return render(request, 'weather/weather.html', context)
+
+
+## Todo 
+## 1. API 호출 
+## 2. 실제, 예측 값을 저장 
+## 3. 기뻐한다. 
+def save_weather(request):
+    url = 'https://api.openweathermap.org/data/2.5/onecall?lat=37.566535&lon=126.977969&exclude=minutely,hourly,alerts&appid=43fcd06479e874bea4eb2b675ab6b465'
+    
+    
+    if request.method == "POST":
+        pass
+
+    r = requests.get(url).json()
+    current = r["current"]
+    daily_list = r["daily"]
+
+    today_weather = {
+        "temp": round((current["temp"] - 271.94), 2),
+        "main": current["weather"][0]["main"],
+        "description" : current["weather"][0]["description"],
+        "icon": current["weather"][0]["icon"]
+    }
+
+    today_weather_db(
+        real=True,
+        main=today_weather["main"], 
+        description=today_weather["description"]
+    ).save()
+
+    ## 예측 값을 저장 7개죠
+
+
+    return render(request, 'weather/save_success.html')
+
+
+def view_weather(request):
+    saved_weather = today_weather_db.objects.all()
+    print(saved_weather)
+
+    return render(request, 'weather/save_success.html')
