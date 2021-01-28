@@ -6,8 +6,12 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
+from scrapy_news.items import MulticampusModuleprjItem_it
+from news.models import it_news
 
-
-class MulticampusModuleprjPipeline:
+class ScrapyNewsPipeline_it:
     def process_item(self, item, spider):
+        
+        item.save()
         return item
+

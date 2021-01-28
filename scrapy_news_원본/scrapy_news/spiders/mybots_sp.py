@@ -1,8 +1,7 @@
-from multicampus_moduleprj.items import MulticampusModuleprjItem_sp
+from scrapy_news.items import MulticampusModuleprjItem_sp
 import scrapy
 from scrapy.http import Request
 import requests
-
 
 
 URL_SP = 'https://news.joins.com/sports?page=%s'

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import today_weather_db
+from .models import today_weather_db,weather_data_db
 import requests
 
 def index(request):
@@ -67,6 +67,24 @@ def save_weather(request):
     ).save()
 
     ## 예측 값을 저장 7개죠
+    weather_data = []
+
+    for index, daily in enumerate(daily_list):
+        daily_weather = {
+        "day": index,
+        "main": daily["weather"][0]["main"],
+        "description" : daily["weather"][0]["description"],
+        "icon": daily["weather"][0]["icon"]
+        }
+        weather_data.append(daily_weather)
+
+    del weather_data[0]
+
+    weather_data_db(
+        day= weather_data["day"],
+        main = weather_data["main"],
+        description = weather_data["description"]
+    ).save()
 
 
     return render(request, 'weather/save_success.html')

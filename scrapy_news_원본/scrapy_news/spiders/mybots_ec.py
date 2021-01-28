@@ -1,4 +1,4 @@
-from multicampus_moduleprj.items import MulticampusModuleprjItem_ec
+from scrapy_news.items import MulticampusModuleprjItem_ec
 import scrapy
 from scrapy.http import Request
 
