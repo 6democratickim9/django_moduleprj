@@ -5,8 +5,16 @@
 
 import scrapy
 from scrapy_djangoitem import DjangoItem
+
+import sys
+sys.path.append('C:/Users/MIN/Desktop/module_project/weather_linking')
 from news.models import it_news
 
+class scrapy_itnews(DjangoItem):
+    django_model = it_news
+    title = scrapy.Field()
+    time = scrapy.Field()
+    preview = scrapy.Field()
 
 
 # class MulticampusModuleprjItem_it(scrapy.Item):
@@ -36,9 +44,3 @@ from news.models import it_news
 #     time = sports_news["time"]
 #     preview = sports_news["preview"]
 
-
-class scrapy_itnews(DjangoItem):
-    django_model = it_news
-    title = scrapy.Field()
-    time = scrapy.Field()
-    preview = scrapy.Field()
