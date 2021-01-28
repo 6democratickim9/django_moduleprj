@@ -20,5 +20,5 @@ from django.urls.conf import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('weather.urls')),
-    path('news/',include('news.urls'))
+    # path('news/',include('news.urls'))
 ]

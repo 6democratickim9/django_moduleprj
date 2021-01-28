@@ -1,4 +1,4 @@
-from scrapy_news import items
+
 from django.db import models
 
 # # class sports_news(models.Model):
