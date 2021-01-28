@@ -38,10 +38,7 @@ def index(request):
     return render(request, 'weather/weather.html', context)
 
 
-## Todo 
-## 1. API 호출 
-## 2. 실제, 예측 값을 저장 
-## 3. 기뻐한다. 
+
 def save_weather(request):
     url = 'https://api.openweathermap.org/data/2.5/onecall?lat=37.566535&lon=126.977969&exclude=minutely,hourly,alerts&appid=43fcd06479e874bea4eb2b675ab6b465'
     

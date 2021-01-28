@@ -1,4 +1,4 @@
-from scrapy_news.items import MulticampusModuleprjItem_it
+from scrapy_news.items import scrapy_itnews
 import scrapy
 from scrapy.http import Request
 
@@ -40,7 +40,7 @@ class MybotsSpider(scrapy.Spider):
         
        
         for row in zip(converted_space,times,previews):
-            item = MulticampusModuleprjItem_it()
+            item = scrapy_itnews()
             item['title'] = row[0]
             item['time'] = row[1]
             item['preview'] = row[2]

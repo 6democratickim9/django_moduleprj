@@ -1,4 +1,4 @@
-# Scrapy settings for multicampus_moduleprj project
+# Scrapy settings for scrapy_news project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -6,6 +6,8 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+
+from scrapy_news import pipelines
 import sys
 import os
 import django
@@ -21,7 +23,7 @@ NEWSPIDER_MODULE = 'scrapy_news.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'multicampus_moduleprj (+http://www.yourdomain.com)'
+#USER_AGENT = 'scrapy_news (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -52,13 +54,13 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'multicampus_moduleprj.middlewares.MulticampusModuleprjSpiderMiddleware': 543,
+#    'scrapy_news.middlewares.ScrapyNewsSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'multicampus_moduleprj.middlewares.MulticampusModuleprjDownloaderMiddleware': 543,
+#    'scrapy_news.middlewares.ScrapyNewsDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -70,7 +72,8 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'scrapy_news.pipelines.ScrapyNewsPipeline': 300,
+   'scrapy_news.pipelines.ScrapyNewsPipeline_it': 300,
+   
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

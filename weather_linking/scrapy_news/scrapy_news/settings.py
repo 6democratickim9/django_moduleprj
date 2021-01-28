@@ -12,9 +12,16 @@ import sys
 import os
 import django
 
+django.setup()
 
-sys.path.append('../dedomeno')
+
+
+sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".."))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'weather_linking.settings'
+
+
+# sys.path.append('../dedomeno')
+# os.environ['DJANGO_SETTINGS_MODULE'] = 'weather_linking.settings'
 
 BOT_NAME = 'scrapy_news'
 
@@ -72,7 +79,7 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'scrapy_news.pipelines.ScrapyNewsPipeline_it': 300,
+   'scrapy_news.pipelines.ScrapyNewsPipeline': 300,
    
 }
 
