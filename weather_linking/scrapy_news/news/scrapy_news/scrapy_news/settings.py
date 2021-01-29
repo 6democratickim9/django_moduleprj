@@ -7,22 +7,35 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-from scrapy_news import pipelines
+print("망할~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-2")
+# from ...models import it_news 
+
 import sys
 import os
+# from django.core.files import File
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+
+sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".."))
+os.environ['DJANGO_SETTINGS_MODULE'] = 'weather_linking.settings'
+sys.path.append(r'C:\Users\MIN\Desktop\module_project\weather_linking')
 
 
 
-# sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".."))
+
+# sys.path.append('../dedomeno')
+
+# sys.path.append(r'C:\Users\MIN\Desktop\module_project\weather_linking\scrapy_news')
+
+
+
+
 # os.environ['DJANGO_SETTINGS_MODULE'] = 'weather_linking.settings'
-
 import django
-
 django.setup()
 
-
-sys.path.append('../dedomeno')
-os.environ['DJANGO_SETTINGS_MODULE'] = 'weather_linking.settings'
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
 
 BOT_NAME = 'scrapy_news'
 
@@ -80,7 +93,7 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'scrapy_news.pipelines.ScrapyNewsItPipeline': 300,
+   'scrapy_news.pipelines.ScrapyNewsPipeline_it': 300,
    
 }
 
@@ -109,3 +122,4 @@ ITEM_PIPELINES = {
 # # # FEED_FORMAT = "json"
 # # # FEED_URI ="my_news.json"
 # FEED_EXPORT_ENCODING = 'utf-8-sig'
+

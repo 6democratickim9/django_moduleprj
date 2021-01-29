@@ -68,20 +68,21 @@ def save_weather(request):
 
     for index, daily in enumerate(daily_list):
         daily_weather = {
-        "day": index,
-        "main": daily["weather"][0]["main"],
-        "description" : daily["weather"][0]["description"],
-        "icon": daily["weather"][0]["icon"]
+            "day": index,
+            "main": daily["weather"][0]["main"],
+            "description" : daily["weather"][0]["description"],
+            "icon": daily["weather"][0]["icon"]
         }
         weather_data.append(daily_weather)
 
     del weather_data[0]
-
-    weather_data_db(
-        day= weather_data["day"],
-        main = weather_data["main"],
-        description = weather_data["description"]
-    ).save()
+    
+    for idx, data in enumerate(weather_data):
+        weather_data_db(
+            day= weather_data[idx]["day"],
+            main = weather_data[idx]["main"],
+            description = weather_data[idx]["description"]
+        ).save()
 
 
     return render(request, 'weather/save_success.html')

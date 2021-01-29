@@ -7,17 +7,19 @@ import scrapy
 from scrapy_djangoitem import DjangoItem
 
 import sys
-sys.path.append('C:/Users/MIN/Desktop/module_project/weather_linking')
+sys.path.append('C:/Users/MIN/Desktop/module_project/weather_linking/scrapy_news/news')
+
 from news.models import it_news
 
-class scrapy_itnews(DjangoItem):
+print("망할~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-1")
+class ScrapyItnews(DjangoItem):
     django_model = it_news
     title = scrapy.Field()
     time = scrapy.Field()
     preview = scrapy.Field()
 
-
-# class MulticampusModuleprjItem_it(scrapy.Item):
+# class scrapy_ecnews(DjangoItem):
+#     django_model = ec_news
 #     title = scrapy.Field()
 #     time = scrapy.Field()
 #     preview = scrapy.Field()
