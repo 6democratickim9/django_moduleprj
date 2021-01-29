@@ -1,4 +1,6 @@
-from ..items import ScrapyItnews
+import sys
+sys.path.append('C:/Users/MIN/Desktop/module_project/weather_linking/scrapy_news/news/scrapy_news')
+from scrapy_news.items import ScrapyItnews
 import scrapy
 from scrapy.http import Request
 from scrapy.spiders import CrawlSpider
