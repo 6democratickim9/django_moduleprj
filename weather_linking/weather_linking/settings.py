@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'weather',
-    'news_app',
+    # 'news_app', # <- 문제의 원인입니다. 
     'test_app'
 ]
 
