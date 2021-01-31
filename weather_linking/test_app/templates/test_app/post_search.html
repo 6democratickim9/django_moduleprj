@@ -16,8 +16,8 @@
     {%if search_list%}
         {% for post in search_list %}
             <h3>{{post.title}}</h3>
-            {{post.modify_date|date:"Y-m-d"}}
-            <p>{{post.description}}</p>
+            {{post.time}}
+            <p>{{post.preview}}</p>
         {% endfor %}
     {% elif search_keyword %}
         [{{ search_keyword }}]의 검색 결과가 없습니다.

@@ -22,23 +22,13 @@
 
         <div id="menu">
             <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="/scrapped/list">scrapped news</a></li>
+            <li><a href="{% url 'it_news:post_all' %}">scrapped news</a></li>
             <li><a href="#">Photo</a></li>
-            <li><a href="#">Add&bigtriangledown;</a>
-                <ul>
-                    <li><a href="#">Bookmark</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Photo</a></li>
-                </ul>
+            
+            <li><a href="{% url 'weather:weather' %}">Weather&amp;Forecast</a>
+                
             </li>
-            <li><a href="#">Change&bigtriangledown;</a>
-                <ul>
-                    <li><a href="#">Bookmark</a></li>
-                    <li><a href="#">Blog</a></li>
-                <li><a href="#">Photo</a></li>
-                </ul>
-            </li>
-            <li><a href="">Search</a></li>
+            <li><a href="{% url 'it_news:post_search' %}">Search</a></li>
             <li><a href="">Admin</a></li>
         </div>
 

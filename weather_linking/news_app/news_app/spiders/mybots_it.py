@@ -26,7 +26,7 @@ class MybotsSpider(CrawlSpider):
     allowed_domains = ['naver.com']
     start_urls = [URL_IT%start_page]
     def start_requests(self):
-        for i in range(10):
+        for i in range(1):
             yield Request(url=URL_IT%(i+start_page), callback=self.parse)
             
     

@@ -21,10 +21,12 @@ from weather_linking.views import HomeView
 
 # router = routers.DefaultRouter()
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(),name='home'),
-    path('weather/',include('weather.urls')),
-    path('scrapped/',include('test_app.urls')),
+    path('weather/',include('weather.urls',namespace="weather")),
+    path('search/',include('test_app.urls',namespace="searchform")),
+    path('it_news/',include('test_app.urls',namespace="it_news")),
     
 ]

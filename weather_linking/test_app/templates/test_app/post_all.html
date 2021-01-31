@@ -5,15 +5,22 @@
 {%block content%}
 
 <div id ="content">
+    <form action="/it_news/refresh/" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Refresh">
+    </form>
 
-    {% for post in posts %}
+    {% for post in it_news_posts %}
         <h2>
         <a href="{{post.get_absolute_url}}">{{post.title}}</a></h2>
-        {{post.modify_date| date:"Y-m-d H:i"}}
-        <p>{{post.description}}</p>
+        <p style = "color: gray">{{post.id}}번째 글</p>
+        <p>{{post.preview}}</p>
+        
     {% endfor %}
     <br/>
+    
     </h2>
+    <br>
     <!-- paging link -->
     <div>
         
@@ -34,4 +41,5 @@
         
     </div>
 </div>
+
 {%endblock%}

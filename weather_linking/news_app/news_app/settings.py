@@ -21,7 +21,6 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'weather_linking.settings'
 
 import django
 django.setup()
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~1")
 
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
