@@ -25,7 +25,7 @@ class RefreshFormView(FormView):
 
     def form_valid(self, form):
         print(self.request)
-        os.chdir('C:\Users\MIN\Desktop\module_project\weather_linking\news_app\news_app')
+        os.chdir('C:/Users/MIN/Desktop/module_project/weather_linking/news_app/news_app')
         os.system('scrapy crawl mybots_it')
         return super().form_valid(form)
 

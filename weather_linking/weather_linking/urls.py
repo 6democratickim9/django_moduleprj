@@ -16,9 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+from weather_linking.views import HomeView
+# from django.db import router
+
+# router = routers.DefaultRouter()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('weather.urls')),
-    path('scrapped/',include('test_app.urls'))
+    path('', HomeView.as_view(),name='home'),
+    path('weather/',include('weather.urls')),
+    path('scrapped/',include('test_app.urls')),
+    
 ]
